@@ -1,14 +1,5 @@
 <template>
   <section class="root">
-    <section class="navigation">
-      <img src="~assets/img/hafood-icon-small.png" class="img-icon-small-top"/>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#news">Partner</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </section>
     <section class="top-container">
       <h1 class="title-top-container"> Kami menyajikan menu menu pilihan dari berbagai katering untuk anda </h1>
       <h2 class="sub-title-top-container">Pilihan paket mulai dari harian, mingguan, hingga bulanan dengan pelayanan dan rasa yang maksimal</h2>

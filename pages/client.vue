@@ -1,15 +1,6 @@
 <template>
   <section class="root">
-    <section class="navigation">
-      <img src="~assets/img/hafood-icon-small.png" class="img-icon-small-top"/>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#news">Partner</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </section>
-    <section class="content">
+    <section class="content" v-if="false">
       <v-layout>
         <v-flex xs18 sm12 offset-sm0>
           <v-card>
@@ -33,11 +24,41 @@
                     </v-card>
                   </nuxt-link>
                 </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card>
-    </v-flex>
-  </v-layout>
+              </v-layout>
+            </v-container>
+          </v-card>
+        </v-flex>
+      </v-layout>
+    </section>
+    <section class="content" v-else>
+      <v-layout>
+        <v-flex xs12 sm6 offset-sm3>
+          <v-card>
+            <v-card-media src="/img/slide-food/slide1.jpg" height="300px">
+              <h2 class="title-form">Login User</h2>
+            </v-card-media>
+            <v-form class="form-login" method="post" action="http://localhost:1323/client/login" id="nativeForm" v-model="valid">
+              <v-text-field
+                label="Email"
+                v-model="email"
+                :rules="emailRules"
+                required
+                name="email"
+              ></v-text-field>
+              <v-text-field
+                label="Password"
+                v-model="password"
+                :rules="passwordRules"
+                :counter="5"
+                required
+                name="password"
+              ></v-text-field>
+
+              <v-btn @click="submit" :disabled="!valid">submit</v-btn>
+            </v-form>
+          </v-card>
+        </v-flex>
+      </v-layout>
     </section>
   </section>
   <!-- <ul class="users">
@@ -63,132 +84,38 @@ export default {
       title: "Hafood.co"
     };
   },
-  data() {
-    return {
-      imagePackage: [
-        {
-          src: "/img/slide-food/slide1.jpg"
-        },
-        {
-          src: "/img/slide-food/slide2.jpg"
-        },
-        {
-          src: "/img/slide-food/slide3.jpg"
-        },
-        {
-          src: "/img/slide-food/slide4.jpg"
-        }
+  data () {
+    return { 
+      password: '',
+      passwordRules: [
+        (v) => !!v || 'Password is required',
+        (v) => v.length > 5 || 'Password must be more than 5 characters'
       ],
-      imageSchedule: [
-        {
-          src: "/img/slide-schedule/slide1.jpg"
-        },
-        {
-          src: "/img/slide-schedule/slide2.jpg"
-        },
-        {
-          src: "/img/slide-schedule/slide3.jpg"
-        },
-        {
-          src: "/img/slide-schedule/slide4.jpg"
-        }
+      valid: false,
+      email: '',
+      emailRules: [
+        (v) => !!v || 'E-mail is required',
+        (v) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
       ]
-    };
+    }
+  },
+  methods: {
+    submit() {
+      nativeForm.submit()
+    }
   }
 };
 </script>
 
 <style scoped>
-.top-container {
-  background-image: url("~assets/img/background-main.jpg");
-  background-size: cover; /* <------ */
-  background-repeat: no-repeat;
-  background-position: center center;
-  padding: 300px 0 300px 0;
+.form-login {
+  padding: 100px;
 }
 
-.title {
-  margin: 30px 0;
-}
-.users {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.user {
-  margin: 10px 0;
-}
-
-a {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding-right: 200px;
-  overflow: hidden;
-  background-color: #333333;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
+.title-form {
   color: white;
-  text-align: center;
-  padding: 26px 26px 26px 26px;
-  text-decoration: none;
-}
-
-li a:hover {
-  background-color: #111111;
-}
-
-.title-top-container {
-  color: azure;
-  font-weight: 200;
+  padding: 20px;
   font-size: 3em;
-  padding: 0 80px 0 80px;
 }
 
-.sub-title-top-container {
-  color: rgb(224, 224, 224);
-  font-weight: 100;
-  font-size: 20px;
-  padding: 0 100px 0 100px;
-}
-.img-icon-small-top {
-  margin-top: 8px;
-  width: 56px;
-  position: absolute;
-  height: 56px;
-}
-
-.carousel-gallery-food {
-  margin: 0px 0px 0px 0px;
-}
-
-.desc-carousel {
-  font-size: 30px;
-  font-weight: 100;
-  margin: 80px 0px 0px 0px;
-}
-
-.section-option-route {
-  background-image: url("~assets/img/background-main-bottom.jpg");
-  background-size: cover; /* <------ */
-  background-repeat: no-repeat;
-  background-position: center center;
-  padding: 60px 0 60px 0;
-}
-
-.title-section-option-route {
-  color: white;
-  font-size: 2em;
-  margin: 0px 0px 30px 0px;
-}
 </style>
