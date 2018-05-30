@@ -31,7 +31,7 @@
       </v-layout>
     </section>
     <section class="content" v-else>
-      <v-layout v-if="false">
+      <v-layout v-if="isLogin">
         <v-flex xs12 sm6 offset-sm3>
           <v-card>
             <v-card-media src="/img/slide-food/slide1.jpg" height="300px">
@@ -57,7 +57,7 @@
               <!-- <v-btn type="submit" :disabled="!valid">submit</v-btn> -->
               <v-btn href="/dashboard">submit</v-btn>
             </v-form>
-            <span>User baru? <v-btn flat small>Register</v-btn> Disini</span>
+            <span>User baru? <v-btn @click="isLogin = false" flat small>Register</v-btn> Disini</span>
           </v-card>
         </v-flex>
       </v-layout>
@@ -93,7 +93,6 @@
               <v-btn href="/dashboard">submit</v-btn>
               <!-- <v-btn type="submit" :disabled="!valid">submit</v-btn> -->
             </v-form>
-            <span>User baru? <v-btn href="/register-partner" flat small>Register</v-btn> Disini</span>
           </v-card>
         </v-flex>
       </v-layout>
@@ -124,6 +123,7 @@ export default {
   },
   data() {
     return {
+      isLogin:true,
       response: {},
       user: {
         email: '',

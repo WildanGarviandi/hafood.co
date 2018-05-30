@@ -5,7 +5,7 @@
       <v-spacer></v-spacer>
       <v-toolbar-items>
         <v-btn flat href="/">Home</v-btn>
-        <v-btn flat href="">Partner</v-btn>
+        <v-btn flat href="/partner">Partner</v-btn>
         <v-btn flat href="/contact">Contact</v-btn>
       </v-toolbar-items>
     </v-toolbar>
