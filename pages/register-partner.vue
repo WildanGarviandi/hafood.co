@@ -31,72 +31,7 @@
       </v-layout>
     </section>
     <section class="content" v-else>
-      <v-layout v-if="false">
-        <v-flex xs12 sm6 offset-sm3>
-          <v-card>
-            <v-card-media src="/img/slide-food/slide1.jpg" height="300px">
-              <h2 class="title-form">Login Merchant {{ response }} </h2>
-            </v-card-media>
-            <!-- <v-form class="form-login" @submit.prevent="handleSubmitLogin" v-model="valid"> -->
-              <v-form class="form-login">
-              <v-text-field
-                label="Email"
-                v-model="user.email"
-                :rules="emailRules"
-                required
-                name="email"
-              ></v-text-field>
-              <v-text-field
-                label="Password"
-                v-model="user.password"
-                :rules="passwordRules"
-                :counter="5"
-                required
-                name="password"
-              ></v-text-field>
-              <!-- <v-btn type="submit" :disabled="!valid">submit</v-btn> -->
-              <v-btn href="/dashboard">submit</v-btn>
-            </v-form>
-            <span>User baru? <v-btn flat small>Register</v-btn> Disini</span>
-          </v-card>
-        </v-flex>
-      </v-layout>
-      <v-layout v-else>
-        <v-flex xs12 sm6 offset-sm3>
-          <v-card>
-            <v-card-media src="/img/slide-food/slide1.jpg" height="300px">
-              <h2 class="title-form">Login Merchant {{ response }} </h2>
-            </v-card-media>
-            <!-- <v-form class="form-login" @submit.prevent="handleSubmit" v-model="valid"> -->
-              <v-form class="form-login">
-              <v-text-field
-                label="Email"
-                v-model="user.email"
-                :rules="emailRules"
-                required
-                name="email"
-              ></v-text-field>
-              <v-text-field
-                label="Full Name"
-                v-model="user.fullname"
-                required
-                name="fullname"
-              ></v-text-field>
-              <v-text-field
-                label="Password"
-                v-model="user.password"
-                :rules="passwordRules"
-                :counter="5"
-                required
-                name="password"
-              ></v-text-field>
-              <v-btn href="/dashboard">submit</v-btn>
-              <!-- <v-btn type="submit" :disabled="!valid">submit</v-btn> -->
-            </v-form>
-            <span>User baru? <v-btn href="/register-partner" flat small>Register</v-btn> Disini</span>
-          </v-card>
-        </v-flex>
-      </v-layout>
+      
     </section>
   </section>
   <!-- <ul class="users">
